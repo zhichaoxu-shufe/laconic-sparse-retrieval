@@ -3,10 +3,10 @@
 export BNB_CUDA_VERSION=124
 
 TOKENIZER=$1
-SAVE_AS=$2
-IS_ECHO=$3
-IS_BIDIRECTIONAL=$4
-STEP=$5
+CKPT=$2
+SAVE_AS=$3
+IS_ECHO=$4
+IS_BIDIRECTIONAL=$5
 
 OUTPUT_DIR="./ranklists/${DATASET}"
 
@@ -17,12 +17,6 @@ Q_MAX_TERMS=512
 
 ADD_EOS_TOKEN=False
 POOLING_STRATEGY="max"
-
-if [ -z "$STEP" ]; then
-    CKPT=ckpts/model_splade_${SAVE_AS}
-else
-    CKPT=ckpts/model_splade_${SAVE_AS}/checkpoint-${STEP}
-fi
 
 echo "loading checkpoint from ${CKPT}"
 

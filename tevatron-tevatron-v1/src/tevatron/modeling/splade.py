@@ -100,7 +100,7 @@ class SpladeModelForCausalLM(DecoderModel):
         """
         model_name_lower = model_name_or_path.lower()
         
-        if "llama" in model_name_lower and is_bidirectional:
+        if ("llama" in model_name_lower or "laconic" in model_name_lower) and is_bidirectional:
             return LlamaBiForMNTP
         elif "qwen" in model_name_lower and is_bidirectional:
             return Qwen2BiForMNTP
